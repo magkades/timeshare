@@ -1,0 +1,14 @@
+/* Force visibility of .tab-pane on medium and large viewports */
+
+@media screen and (min-width: 992px) {
+    
+    .tab-pane {
+        display: block !important;
+        visibility: visible !important;
+    }
+    
+}
+
+.nav-dashboard {
+    margin-bottom: 1em;
+}
