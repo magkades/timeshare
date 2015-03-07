@@ -18,7 +18,9 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  github: {},
+  contact: String,
+  credit: Number
 });
 
 /**
