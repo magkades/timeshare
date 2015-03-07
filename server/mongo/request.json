@@ -1,0 +1,6 @@
+{ description: "Quick haircut!", requester: "alice", credit:30, status:"open"}
+{ description: "Fix wifi!", requester: "bob",   credit:10, status:"open"}
+{ description: "Clear out garage!", requester: "charlie", credit:40, status:"open"}
+{ description: "Lift to mall!", requester: "danielle", credit:15, status:"open"}
+{ description: "Bake birthday cake!", requester: "charlie", credit:40, status:"open"}
+{ description: "Iron dress!", requester: "alice", credit:15, status:"open"}

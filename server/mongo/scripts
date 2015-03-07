@@ -1,0 +1,7 @@
+-- From mongo shell
+db.createCollection("Request")
+db.createCollection("User")
+
+-- From command line, modify path!
+mongoimport --db test --collection User --type json --file /Users/despoina/git/magkades/timeshare/server/mongo/request.json
+mongoimport --db test --collection User --type json --file /Users/despoina/git/magkades/timeshare/server/mongo/user.json
