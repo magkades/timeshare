@@ -1,0 +1,4 @@
+{ "_id" : "alice", contact: "alice@timeshare.com", name: "Alice", password: "123", credit:50}
+{ "_id" : "bob", contact: "bob@timeshare.com", name: "Bob", password: "123", credit:50}
+{ "_id" : "charlie", contact: "charlie@timeshare.com", name: "Charlie", password: "123", credit:50}
+{ "_id" : "danielle", contact: "danielle@timeshare.com", name: "Danielle", password: "123", credit:50}
