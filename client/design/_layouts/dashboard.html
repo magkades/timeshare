@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<!-- Weird bug – liquid removing first line of code, fixed with this comment -->
+
+<div class="container">
+    
+    {{ content }}
+    
+    
+    <div role="tabpanel">
+        
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills visible-xs visible-sm nav-dashboard" role="tablist">
+            <li role="presentation" class="active"><a href="#all-requests" aria-controls="home" role="tab" data-toggle="pill">All requests</a></li>
+            <li role="presentation"><a href="#my-requests"role="tab" data-toggle="pill">My requests</a></li>
+            <li role="presentation"><a href="#my-offers" role="tab" data-toggle="pill">My offers</a></li>
+        </ul>
+        
+        <div class="row">
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+            
+                <div role="tabpanel" class="tab-pane active" id="all-requests">
+                    <div class="col-md-6">
+                    
+                        <h2 class="h4 visible-md visible-lg">All requests</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                        </ul>
+
+                    </div>
+               </div> <!-- .tab-pane -->
+
+                <div role="tabpanel" class="tab-pane" id="my-requests">
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">My requests</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div> <!-- .tab-pane -->
+
+                <div role="tabpanel" class="tab-pane" id="my-offers">  
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">My offers</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+                            </li>
+                        </ul>
+
+                    </div>
+               </div> <!-- .tab-pane -->
+
+            </div>
+        </div>
+
+    </div> <!-- tabpanel -->
+
+</div>

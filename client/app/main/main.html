@@ -7,14 +7,24 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      
+      <ul>
+        <li ng-repeat="request in requests">
+          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}}
+        </li>
+      </ul>
     </div>
     <div class="col-md-4">
+      <ul>
+        <li ng-repeat="request in myRequests">
+          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}}
+        </li>
+      </ul>
     </div>
     <div class="col-md-4">
+      <ul>
+        <li ng-repeat="request in myOffers">
+          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}}
+        </li>
+      </ul>
     </div>
   </div>
-
-<footer class="footer">
-
-</footer>
