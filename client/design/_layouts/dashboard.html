@@ -23,31 +23,37 @@ layout: default
             <!-- Tab panes -->
             <div class="tab-content">
             
-                <div role="tabpanel" class="tab-pane active" id="all-requests">
-                    <div class="col-md-6">
+                <div role="tabpanel" class="tab-pane fade active" id="all-requests">
+                    <div class="col-md-4">
                     
                         <h2 class="h4 visible-md visible-lg">All requests</h2>
 
-                        <ul class="list-group">
+                        <ul class="list-group media-list">
+                            {% for post in site.posts %}
                             <li class="list-group-item">
-                                <h4 class="list-group-item-heading">List group item heading</h4>
-                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="{{ page.title }}">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">{{ post.title }} <span class="small">{{ post.action }}</span></h5>
+                                        <p>{{ post.description }} <br> <span class="label label-success">{{post.credits}} credits</span></p>
+                                    </div>
+                                    <div class="media-right">
+                                        <button class="btn btn-sm btn-primary pull-right">I'll do it</button>
+                                    </div>
+                                </div>
+                                
                             </li>
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">List group item heading</h4>
-                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
-                            </li>
-                            <li class="list-group-item">
-                                <h4 class="list-group-item-heading">List group item heading</h4>
-                                <p class="list-group-item-text">Dapibus ac facilisis in</p>
-                            </li>
+                            {% endfor %}
                         </ul>
 
                     </div>
                </div> <!-- .tab-pane -->
 
                 <div role="tabpanel" class="tab-pane" id="my-requests">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
 
                         <h2 class="h4 visible-md visible-lg">My requests</h2>
 
@@ -66,7 +72,7 @@ layout: default
                 </div> <!-- .tab-pane -->
 
                 <div role="tabpanel" class="tab-pane" id="my-offers">  
-                    <div class="col-md-6">
+                    <div class="col-md-4">
 
                         <h2 class="h4 visible-md visible-lg">My offers</h2>
 

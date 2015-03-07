@@ -1,0 +1,173 @@
+---
+layout: default
+---
+
+<!-- Weird bug – liquid removing first line of code, fixed with this comment -->
+
+<div class="container">
+    
+    {{ content }}
+    
+    
+    <div role="tabpanel">
+        
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills visible-xs visible-sm nav-dashboard" role="tablist">
+            <li role="presentation" class="active"><a href="#all-requests" aria-controls="home" role="tab" data-toggle="pill">All requests</a></li>
+            <li role="presentation"><a href="#my-requests"role="tab" data-toggle="pill">My requests</a></li>
+            <li role="presentation"><a href="#my-offers" role="tab" data-toggle="pill">My offers</a></li>
+        </ul>
+        
+        <div class="row">
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+            
+                <div role="tabpanel" class="tab-pane fade in active" id="all-requests">
+                    <div class="col-md-6">
+                    
+                        <h2 class="h4 visible-md visible-lg">All requests</h2>
+
+                        <ul class="list-group media-list">
+                            {% for post in site.posts %}
+                            <li class="list-group-item">
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="{{ post.title }}">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h5 class="media-heading">{{ post.title }} <span class="small">{{ post.action }}</span></h5>
+                                                <p>{{ post.description }} <br> <span class="label label-success">{{post.credits}} credits</span></p>
+                                            </div>
+                                            <div class="media-right">
+                                                {% if post.status == "under-offer" %}
+                                                <button class="btn btn-sm btn-default" disabled>Under offer</button>
+                                                {% else %}
+                                                <button class="btn btn-sm btn-primary">I'll do it</button>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+               </div> <!-- .tab-pane -->
+
+                <div role="tabpanel" class="tab-pane" id="my-requests">
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">My requests</h2>
+
+                        <ul class="list-group media-list">
+                            {% for post in site.posts %}
+                            {% if post.title == "Alice" %}
+                            <li class="list-group-item">
+
+                                <div class="media">
+                                    
+                                    <div class="media-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="{{ post.title }}">
+                                    </div>
+                                    
+                                    <div class="media-body">
+                                        <div class="media">
+                                            
+                                            <div class="media-body">
+                                                <h5 class="media-heading">{{ post.title }} <span class="small">{{ post.action }}</span></h5>
+                                                <p>{{ post.description }} <br> <span class="label label-success">{{post.credits}} credits</span></p>
+                                            </div>
+                                            
+                                            <div class="media-right">
+                                                {% if post.status == "under-offer" %}
+                                                <button class="btn btn-sm btn-default" disabled>Under offer</button>
+                                                {% else %}
+                                                <button class="btn btn-sm btn-primary">I'll do it</button>
+                                                {% endif %}
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        {% if post.status == "under-offer" %}
+                                        <div class="panel panel-default panel-under-offer">
+                                            <div class="panel-body">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <img class="media-object" src="http://placehold.it/50x50" alt="{{ post.title }}">
+                                                    </div>
+                                           
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading">Bob <span class="small">has offered</span></h5>
+                                                        <p>
+                                                            <i class="glyphicon glyphicon-envelope"></i> <a href="">bob@timeshare.com</a><br> <i class="glyphicon glyphicon-phone"></i> 0779 121 6929
+                                                        </p>
+                                                    </div>
+                                                    
+                                                    <div class="media-right">
+                                                        <div class="media-heading"><button class="btn btn-sm btn-primary">Accept</button></div>
+                                                        <button class="btn btn-sm btn-default">Decline</button>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        
+                                    </div>
+                                    
+                                </div>
+                                
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                </div> <!-- .tab-pane -->
+
+                <div role="tabpanel" class="tab-pane" id="my-offers">  
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">My offers</h2>
+
+                        <ul class="list-group media-list">
+                            <li class="list-group-item">
+                                <p class="lead">You have't made any offers.</p>
+                            </li>
+                            <!--{% for post in site.posts %}
+                            {% if post.title == "Alice" %}
+                            <li class="list-group-item">
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="{{ post.title }}">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="media-heading">{{ post.title }} <span class="small">{{ post.action }}</span></h5>
+                                        <p>{{ post.description }} <br> <span class="label label-success">{{post.credits}} credits</span></p>
+                                    </div>
+                                    <div class="media-right">
+                                        <button class="btn btn-sm btn-primary pull-right">I'll do it</button>
+                                    </div>
+                                </div>
+                                
+                            </li>
+                            {% endif %}
+                            {% endfor %}-->
+                        </ul>
+
+                    </div>
+               </div> <!-- .tab-pane -->
+
+            </div>
+        </div>
+
+    </div> <!-- tabpanel -->
+
+</div>
