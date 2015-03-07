@@ -6,6 +6,7 @@ angular.module('timeshareApp')
     $scope.user = Auth.getCurrentUser();
     $scope.requests = [
       {
+        '_id': 1,
         'description': 'request1',
         'requester': 
           {
@@ -22,6 +23,7 @@ angular.module('timeshareApp')
         'status': 'open'
       },
       {
+          '_id': 2,
         'description': 'request2',
         'requester': 
           {
@@ -38,6 +40,7 @@ angular.module('timeshareApp')
         'status': 'open'
       },
       {
+          '_id': 3,
         'description': 'request3',
         'requester': 
           {
@@ -46,7 +49,7 @@ angular.module('timeshareApp')
           },
         'bidder': 
           {
-            '_id': '54fae772309ec02b4b09fba1',
+            '_id': '54fb0748fe56bf75396bd07e',
             'name': 'mcarmen'
           },
         'credit': 10,
@@ -54,10 +57,11 @@ angular.module('timeshareApp')
         'status': 'open'
       },
       {
+          '_id': 4,
         'description': 'request4',
         'requester': 
           {
-            '_id': '54fae772309ec02b4b09fba1',
+            '_id': '54fb0748fe56bf75396bd07e',
             'name': 'mcarmen'
           },
         'bidder': 
@@ -68,14 +72,29 @@ angular.module('timeshareApp')
         'credit': 10,
         'category': 'category2',
         'status': 'open'
-      }
+      },
+        {
+            '_id': 4,
+            'description': 'request4',
+            'requester':
+            {
+                '_id': '54fb0748fe56bf75396bd07e',
+                'name': 'mcarmen'
+            },
+            'bidder':
+            {
+                '_id': '5',
+                'name': 'user5'
+            },
+            'credit': 10,
+            'category': 'category2',
+            'status': 'under_offer'
+        }
+
       ];
-    $scope.myRequests = $scope.requests.filter(function(request){
-      return request.requester._id === $scope.user._id;
-    });
-    $scope.myOffers = $scope.requests.filter(function(request){
-      return request.bidder._id === $scope.user._id;
-    });
+
+     updateLists();
+
     $http.get('/api/requests').success(function(requests) {
       $scope.requests = [
       {
@@ -145,4 +164,24 @@ angular.module('timeshareApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('requests');
     });
+
+    $scope.changeStatus = function(request, status) {
+        request.status = status;
+        request.bidder = $scope.user;
+
+       // $http.put('/api/requests/'+request._id, request).success(function() {
+            updateLists();
+     //   });
+    }
+
+    function updateLists () {
+
+
+        $scope.myRequests = $scope.requests.filter(function(request){
+            return request.requester._id === $scope.user._id;
+        });
+        $scope.myOffers = $scope.requests.filter(function(request){
+            return request.bidder._id === $scope.user._id;
+        });
+    }
   });

@@ -1,30 +1,114 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-
-</header>
-
 <div class="container">
+
+    {{ content }}
+
+
+    <div role="tabpanel">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills visible-xs visible-sm nav-dashboard" role="tablist">
+            <li role="presentation" class="active"><a href="#all-requests" aria-controls="home" role="tab" data-toggle="pill">All requests</a></li>
+            <li role="presentation"><a href="#my-requests"role="tab" data-toggle="pill">My requests</a></li>
+            <li role="presentation"><a href="#my-offers" role="tab" data-toggle="pill">My offers</a></li>
+        </ul>
+
+        <div class="row">
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                <div role="tabpanel" class="tab-pane active" id="all-requests">
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">All requests</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="request in requests | filter: { status : 'open' }">
+                                <h4 class="list-group-item-heading">{{request.description}}</h4>
+                                <p class="list-group-item-text">{{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}} | {{request.bidder}}</p>
+                                <button ng-show = "user._id !== request.requester._id" ng-click="changeStatus(request,'under_offer') "type="button" class="btn">I would do it</button>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div> <!-- .tab-pane -->
+
+                <div role="tabpanel" class="tab-pane" id="my-requests">
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">My requests</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="request in myRequests">
+                                <h4 class="list-group-item-heading">{{request.description}}</h4>
+                                <p class="list-group-item-text">
+                                 {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}} | {{request.bidder}}
+                                    <button ng-show = "user._id !== request.requester._id" ng-click="changeStatus(request,'under_offer') "type="button" class="btn">I would do it</button>
+                                </p>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div> <!-- .tab-pane -->
+
+                <div role="tabpanel" class="tab-pane" id="my-offers">
+                    <div class="col-md-6">
+
+                        <h2 class="h4 visible-md visible-lg">My offers</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="request in myOffers">
+                                <h4 class="list-group-item-heading">{{request.description}}</h4>
+                                <p class="list-group-item-text"> {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}} | {{request.bidder}}</p>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div> <!-- .tab-pane -->
+
+            </div>
+        </div>
+
+    </div> <!-- tabpanel -->
+
+</div>
+
+
+
+
+<!--<div class="container">
   <div class="row">
+
     <div class="col-md-4">
+        <h1>All requests</h1>
       <ul>
-        <li ng-repeat="request in requests">
-          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}}
+        <li ng-repeat="request in requests | filter: { status : 'open' }">
+          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}} | {{request.bidder}}
+            <button ng-show = "user._id !== request.requester._id" ng-click="changeStatus(request,'under_offer') "type="button" class="btn">I would do it</button>
         </li>
       </ul>
     </div>
     <div class="col-md-4">
+        <h1>My Requests</h1>
       <ul>
         <li ng-repeat="request in myRequests">
-          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}}
+          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}} | {{request.bidder}}
+            <button ng-show = "user._id === request.requester._id && request.status === 'under_offer'" ng-click="changeStatus(request,'accepted') "type="button" class="btn">Accept</button>
+            <button ng-show = "user._id === request.requester._id && request.status === 'under_offer'" ng-click="changeStatus(request,'rejected') "type="button" class="btn">Reject</button>
+
         </li>
       </ul>
     </div>
     <div class="col-md-4">
+       <h1> My offers </h1>
       <ul>
         <li ng-repeat="request in myOffers">
-          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}}
+          {{request.description}} | {{request.requester.name}} | {{request.bidder.name}} | {{request.credit}} | {{request.category}} | {{request.status}} | {{request.bidder}}
         </li>
       </ul>
     </div>
   </div>
+    </div>-->
