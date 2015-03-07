@@ -6,6 +6,41 @@ angular.module('timeshareApp')
     $scope.user = Auth.getCurrentUser();
 
 
+    $scope.myRequests = [{
+        '_id': 1,
+        'description': 'request1',
+        'requester':
+        {
+            '_id': '1',
+            'name': 'user1'
+        },
+        'bidder':
+        {
+            '_id': '2',
+            'name': 'user2'
+        },
+        'credit': 20,
+        'category': 'category1',
+        'status': 'under_offer'
+    },
+        {
+            '_id': 2,
+            'description': 'request2',
+            'requester':
+            {
+                '_id': '3',
+                'name': 'user3'
+            },
+            'bidder':
+            {
+                '_id': '2',
+                'name': 'user2'
+            },
+            'credit': 20,
+            'category': 'category1',
+            'status': 'under_offer'
+        }]
+
     $scope.requests = [
             {
                 '_id': 1,
@@ -20,7 +55,7 @@ angular.module('timeshareApp')
                     '_id': '2',
                     'name': 'user2'
                 },
-                'credit': 10,
+                'credit': 20,
                 'category': 'category1',
                 'status': 'open'
      },
@@ -54,7 +89,7 @@ angular.module('timeshareApp')
                     '_id': '54fb0748fe56bf75396bd07e',
                     'name': 'mcarmen'
                 },
-                'credit': 10,
+                'credit': 20,
                 'category': 'category2',
                 'status': 'open'
             },
@@ -71,7 +106,7 @@ angular.module('timeshareApp')
                     '_id': '5',
                     'name': 'user5'
                 },
-                'credit': 10,
+                'credit': 20,
                 'category': 'category2',
                 'status': 'open'
             },
@@ -88,7 +123,7 @@ angular.module('timeshareApp')
                     '_id': '5',
                     'name': 'user5'
                 },
-                'credit': 10,
+                'credit': 20,
                 'category': 'category2',
                 'status': 'under_offer'
             },
@@ -105,7 +140,7 @@ angular.module('timeshareApp')
                 '_id': '5',
                 'name': 'user5'
             },
-            'credit': 10,
+            'credit': 20,
             'category': 'category2',
             'status': 'under_offer'
         }
