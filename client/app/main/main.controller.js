@@ -6,7 +6,8 @@ angular.module('timeshareApp')
     $scope.user = Auth.getCurrentUser();
 
 
-    $scope.myRequests = [{
+    $scope.myRequests = [
+        {
         '_id': 1,
         'description': 'request1',
         'requester':
@@ -21,7 +22,7 @@ angular.module('timeshareApp')
         },
         'credit': 20,
         'category': 'category1',
-        'status': 'under_offer'
+        'status': 'open'
     },
         {
             '_id': 2,
@@ -179,10 +180,10 @@ angular.module('timeshareApp')
 
     function updateLists () {
       //  console.log($scope.user);
-        $scope.myRequests = $scope.requests.filter(function(request){
+       /* $scope.myRequests = $scope.requests.filter(function(request){
             return request.requester._id === $scope.user._id;
         });
-
+*/
         console.log( $scope.myRequests);
         $scope.myOffers = $scope.requests.filter(function(request){
             return request.bidder._id === $scope.user._id;
