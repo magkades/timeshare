@@ -9,8 +9,12 @@ angular.module('timeshareApp', [
   'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
-    $routeProvider
-      .otherwise({
+    $routeProvider.
+      when('/new_request', {
+        templateUrl: 'components/new-request/new-request.html',
+        controller: 'NewRequestCtrl'
+      }).
+      otherwise({
         redirectTo: '/'
       });
 
