@@ -5,6 +5,9 @@ angular.module('timeshareApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    }, {
+      'title': 'New request',
+      'link': '/new_request'
     }];
 
     $scope.isCollapsed = true;
